@@ -2,7 +2,7 @@ import { table, getMinifiedRecords, findRecordByFilter } from '../../lib/airtabl
 
 const createCoffeeStore = async(req, res) => {
   if(req.method === 'POST') {
-    const {id, name, address, neighbourhood, voting, imgUrl} = req.body
+    const {id, name, address, neighborhood, voting, imgUrl} = req.body
     //find a record
     try {
       if(id) {
@@ -18,7 +18,7 @@ const createCoffeeStore = async(req, res) => {
                   id,
                   name,
                   address,
-                  neighbourhood,
+                  neighborhood,
                   voting,
                   imgUrl,
                 },
@@ -38,7 +38,7 @@ const createCoffeeStore = async(req, res) => {
         res.json({ message: 'Id is missing' })
       }
     } catch(error) {
-      console.error('Error creating or finding store', error);
+
       res.status(500);
       res.json({ message: 'Error creating or finding store', error });
     }

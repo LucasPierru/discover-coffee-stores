@@ -32,7 +32,6 @@ export default function Home(props) {
         try {
           const response = await fetch(`/api/getCoffeeStoresByLocation?latLong=${latLong}&limit=${30}`)
           const fetchedCoffeeStores = await response.json()
-          console.log('fetched coffee stores', fetchedCoffeeStores);
           // set coffee stores
           dispatch({
             type: ACTION_TYPES.SET_COFFEE_STORES,
@@ -41,7 +40,6 @@ export default function Home(props) {
           setCoffeeStoresError('');
         } catch (error) {
           //set error
-          console.log({error});
           setCoffeeStoresError(error.message);
         }
       }
@@ -50,7 +48,6 @@ export default function Home(props) {
   }, [dispatch, latLong])
 
   const handleOnBannerBtnClick = () => {
-    console.log('banner button');
     handleTrackLocation();
   };
 
